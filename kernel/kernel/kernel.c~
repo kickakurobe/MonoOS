@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <kernel/tty.h>
+
+void kernel_main(void) {
+	terminal_initialize();
+        initscr();            // Инициализация ncurses
+	cbreak();             // Отключаем буферизацию
+	noecho();             // Отключаем отображение введенных символов
+
+	printw("Hello, ncurses! Press any key to exit...");  // Выводим сообщение
+	refresh();           // Обновляем экран
+    
+	getch();             // Ждем нажатия клавиши
+	endwin();            // Завершаем работу с ncurses
+}
